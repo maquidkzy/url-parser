@@ -1,12 +1,11 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>URL Tool Pro</title><link rel="icon" type="image/png" href="favicon.png"><style>:root{--p:#4285f4;--bg:#f8f9fa;--sbg:#fff;--cbg:#fff;--t:#202124;--t2:#5f6368;--b:#dfe1e5;--h:#f1f3f4;--sh:rgba(32,33,36,0.28);--s-bg:#e6f4ea;--s-tx:#137333;--if:#f1f3f4;--lk:#1a73e8;--sb:#202124;--sr:#d93025;--sl:#1a73e8;--se:#5f6368;--sv:#bc8df3}[data-theme="dark"]{--bg:#202124;--sbg:#292a2d;--cbg:#303134;--t:#e8eaed;--t2:#9aa0a6;--b:#5f6368;--h:#3c4043;--sh:rgba(0,0,0,0.5);--s-bg:#0f5223;--s-tx:#81c995;--if:#3c4043;--lk:#8ab4f8;--sb:#e8eaed;--sr:#ff8a80;--sl:#8ab4f8;--se:#9aa0a6}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--t);margin:0;height:100vh;overflow:hidden;display:flex}
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>URL Tool Pro</title><style>:root{--p:#4285f4;--bg:#f8f9fa;--sbg:#fff;--cbg:#fff;--t:#202124;--t2:#5f6368;--b:#dfe1e5;--h:#f1f3f4;--sh:rgba(32,33,36,0.28);--s-bg:#e6f4ea;--s-tx:#137333;--if:#f1f3f4;--lk:#1a73e8;--sb:#202124;--sr:#d93025;--sl:#1a73e8;--se:#5f6368;--sv:#bc8df3}[data-theme="dark"]{--bg:#202124;--sbg:#292a2d;--cbg:#303134;--t:#e8eaed;--t2:#9aa0a6;--b:#5f6368;--h:#3c4043;--sh:rgba(0,0,0,0.5);--s-bg:#0f5223;--s-tx:#81c995;--if:#3c4043;--lk:#8ab4f8;--sb:#e8eaed;--sr:#ff8a80;--sl:#8ab4f8;--se:#9aa0a6}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--t);margin:0;height:100vh;overflow:hidden;display:flex}
 /* Sidebar */
 .sb{width:280px;background:var(--sbg);border-right:1px solid var(--b);display:flex;flex-direction:column;flex-shrink:0;z-index:100;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);overflow:hidden;white-space:nowrap}
 .sb.closed{width:0;border:none} /* Desktop collapse */
 .sb-h{padding:15px;border-bottom:1px solid var(--b);display:flex;align-items:center;gap:10px}
 .sb-h h3{margin:0;font-size:16px;color:var(--t2);flex-grow:1}
 .sb-act{display:flex;gap:10px}
-/* Inner Toggle (Mobile Close) */
-.in-tog{background:none;border:none;color:var(--t2);cursor:pointer;padding:4px;border-radius:4px;display:none} /* Hidden on desktop */
+.in-tog{background:none;border:none;color:var(--t2);cursor:pointer;padding:4px;border-radius:4px;display:none} 
 .in-tog:hover{background:var(--h);color:var(--t)}
 .txt-btn{background:none;border:none;color:var(--t2);font-size:12px;cursor:pointer;text-decoration:underline;padding:0}.txt-btn:hover{color:var(--sr)}.hl{flex:1;overflow-y:auto;list-style:none;padding:0;margin:0}.hi{padding:12px 15px;border-bottom:1px solid var(--b);cursor:pointer;position:relative}.hi:hover{background:var(--h)}.hu{font-size:13px;color:var(--t);overflow:hidden;text-overflow:ellipsis;display:block;font-weight:500;margin-bottom:2px}.ht{font-size:11px;color:var(--t2)}.h-del{position:absolute;right:5px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--t2);cursor:pointer;padding:5px;display:none;font-size:16px}.hi:hover .h-del{display:block}.h-del:hover{color:var(--sr)}.sb-f{padding:15px;border-top:1px solid var(--b);display:flex;justify-content:space-between;align-items:center}
 /* Toggle Switch */
@@ -15,7 +14,7 @@
 .main{flex:1;display:flex;flex-direction:column;align-items:center;overflow-y:auto;padding:20px;position:relative}.ctr{width:100%;max-width:800px}.top-bar{display:flex;align-items:center;margin-bottom:20px;width:100%}
 .tog-sb{background:none;border:none;color:var(--t2);cursor:pointer;padding:8px;border-radius:50%;margin-right:15px}
 .tog-sb:hover{background:var(--h);color:var(--t)}
-h1{font-weight:500;color:var(--t2);margin:0 auto;font-size:24px;transform:translateX(-20px)} /* Center balance */
+h1{font-weight:500;color:var(--t2);margin:0 auto;font-size:24px;transform:translateX(-20px)}
 /* Search Box */
 .s-wrap{margin-bottom:30px}.s-box{position:relative;background:var(--cbg);border:1px solid var(--b);border-radius:24px;padding:10px 10px 10px 25px;box-shadow:0 1px 6px var(--sh);transition:0.2s;display:flex;flex-direction:column}.s-box:focus-within{box-shadow:0 1px 6px var(--sh),0 2px 10px rgba(0,0,0,0.1);border-color:rgba(0,0,0,0)}.inp-wrap{position:relative;width:100%;min-height:40px}.url-lay{font-family:'Courier New',monospace;font-size:26px;line-height:1.5;width:100%;padding:0;border:none;margin:0;white-space:pre-wrap;word-break:break-all;box-sizing:border-box}#uh{position:absolute;top:0;left:0;z-index:1;color:var(--sb);pointer-events:none;background:0 0}#ui{position:relative;z-index:2;background:0 0;color:transparent;caret-color:var(--t);outline:0;resize:none;overflow:hidden;display:block}.acts{display:flex;align-items:center;margin-top:5px;height:34px}.cc{font-size:12px;color:var(--t2);padding-right:10px;border-right:1px solid var(--b);margin-right:8px}.ib{background:0 0;border:0;cursor:pointer;padding:8px;border-radius:50%;color:var(--t2);display:flex;transition:0.2s}.ib:hover{background:var(--h);color:var(--t)}.meta{display:flex;justify-content:space-between;margin-top:8px;padding:0 15px;font-size:12px;color:var(--t2)}.ex-lnk{background:0 0;border:0;color:var(--lk);cursor:pointer;padding:0;font-family:monospace}.ex-lnk:hover{text-decoration:underline}
 /* Results */
@@ -26,36 +25,29 @@ h1{font-weight:500;color:var(--t2);margin:0 auto;font-size:24px;transform:transl
 @media(max-width:768px){
     .sb { position:fixed; top:0; left:0; height:100%; width:85%; max-width:280px; transform:translateX(-100%); box-shadow:2px 0 10px rgba(0,0,0,0.2); }
     .sb.active { transform:translateX(0); }
-    .in-tog { display:block; } /* Show sidebar close button */
-    .sb.closed { width:auto; border-right:1px solid var(--b); } /* Reset desktop collapse */
-    /* Overlay */
+    .in-tog { display:block; }
+    .sb.closed { width:auto; border-right:1px solid var(--b); }
     .ovl { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:90; }
     .ovl.active { display:block; }
 }
 </style></head><body>
 <div class="ovl" id="ovl"></div>
-
 <aside class="sb" id="sb">
     <div class="sb-h">
-        <button class="in-tog" id="sbClose" title="Close Menu">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-        </button>
+        <button class="in-tog" id="sbClose" title="Close Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
         <h3>History</h3>
         <div class="sb-act"><button class="txt-btn" id="csvBtn">CSV</button><button class="txt-btn" id="clrBtn">Clear</button></div>
     </div>
     <ul class="hl" id="hl"><li style="padding:20px;text-align:center;font-size:13px;color:var(--t2);font-style:italic">No history</li></ul>
     <div class="sb-f"><span style="font-size:14px">Dark Mode</span><label class="sw"><input type="checkbox" id="tm"><span class="sld"></span></label></div>
 </aside>
-
 <main class="main">
     <div class="ctr">
         <div class="top-bar">
-            <button class="tog-sb" id="tgSb" title="Toggle Menu">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </button>
+            <button class="tog-sb" id="tgSb" title="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
             <h1>URL Pro</h1>
         </div>
-        <div class="s-wrap"><div class="s-box"><div class="inp-wrap"><div id="uh" class="url-lay"></div><textarea id="ui" class="url-lay" rows="1" placeholder="Paste URL..." spellcheck="false"></textarea></div><div class="acts"><span id="cc" class="cc">0 chars</span><button class="ib" id="svBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg></button><button class="ib" id="cpBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div></div><div class="meta"><div class="ex">Try: <button id="exLnk" class="ex-lnk">https://site.com/?a=1&amp;b=2</button></div><div>Press <strong>Enter</strong> to save</div></div></div>
+        <div class="s-wrap"><div class="s-box"><div class="inp-wrap"><div id="uh" class="url-lay"></div><textarea id="ui" class="url-lay" rows="1" placeholder="Paste URL..." spellcheck="false"></textarea></div><div class="acts"><span id="cc" class="cc">0 chars</span><button class="ib" id="svBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg></button><button class="ib" id="cpBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div></div><div class="meta"><div class="ex">Try: <button id="exLnk" class="ex-lnk">https://example.com/?a=1&amp;b=2</button></div><div>Press <strong>Enter</strong> to save</div></div></div>
         <div id="res" class="res"><div><div class="sec">Standard UTM</div><div class="cd" id="ul"></div></div><div id="os" style="display:none"><div class="sec">Other Params</div><div class="cd" id="ol"></div></div></div>
     </div>
 </main>
@@ -72,13 +64,11 @@ function an(sv){const v=ui.value.trim();cc.innerText=v.length+' chars';if(!v){re
 function addH(u){if(H.length&&H[0].u===u)return;H=H.filter(i=>i.u!==u);H.unshift({u,t:new Date().toLocaleString()});if(H.length>50)H.pop();svH();ldH();G('svBtn').style.color='var(--s-tx)';setTimeout(()=>G('svBtn').style.color='',1e3)}
 function ldH(){hl.innerHTML='';if(!H.length){hl.innerHTML='<li style="padding:20px;text-align:center;font-size:13px;color:var(--t2);font-style:italic">No history</li>';return}H.forEach(i=>{const l=document.createElement('li');l.className='hi';l.innerHTML=`<span class="hu">${esc(i.u)}</span><span class="ht">${i.t}</span><button class="h-del">✕</button>`;l.onclick=e=>{if(e.target.className!=='h-del'){ui.value=i.u;upBox();an(false);if(window.innerWidth<=768)togMob(false)}};l.querySelector('.h-del').onclick=e=>{e.stopPropagation();H=H.filter(x=>x.u!==i.u);svH();ldH()};hl.appendChild(l)})}
 function expCsv(){if(!H.length)return alert('No history');const k=new Set();H.forEach(i=>{try{new URL(i.u).searchParams.forEach((_,key)=>k.add(key))}catch{}});const pk=Array.from(k).sort(),h=['Timestamp','URL',...pk],r=H.map(i=>{try{const p=new URL(i.u).searchParams;return[i.t,i.u,...pk.map(x=>p.get(x)||'')].map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')}catch{return ''}});const b=new Blob([[h.join(','),...r].join('\n')],{type:'text/csv'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='history.csv';a.click()}
-/* Sidebar Logic */
 function togMob(open){if(open){sb.classList.add('active');ovl.classList.add('active')}else{sb.classList.remove('active');ovl.classList.remove('active')}}
 function togDsk(){sb.classList.toggle('closed')}
 G('tgSb').onclick=()=>{window.innerWidth<=768?togMob(true):togDsk()};
 G('sbClose').onclick=()=>togMob(false);
 ovl.onclick=()=>togMob(false);
-// Common Events
 ui.addEventListener('input',()=>{upBox();an(false)});
 ui.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();an(true)}});
 G('svBtn').onclick=()=>an(true);
