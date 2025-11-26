@@ -1,4 +1,11 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>URL Tool Pro</title><link rel="icon" type="image/png" href="favicon.png"><style>:root{--p:#4285f4;--bg:#f8f9fa;--sbg:#fff;--cbg:#fff;--t:#202124;--t2:#5f6368;--b:#dfe1e5;--h:#f1f3f4;--sh:rgba(32,33,36,0.28);--s-bg:#e6f4ea;--s-tx:#137333;--if:#f1f3f4;--lk:#1a73e8;--sb:#202124;--sr:#d93025;--sl:#1a73e8;--se:#5f6368;--sv:#bc8df3}[data-theme="dark"]{--bg:#202124;--sbg:#292a2d;--cbg:#303134;--t:#e8eaed;--t2:#9aa0a6;--b:#5f6368;--h:#3c4043;--sh:rgba(0,0,0,0.5);--s-bg:#0f5223;--s-tx:#81c995;--if:#3c4043;--lk:#8ab4f8;--sb:#e8eaed;--sr:#ff8a80;--sl:#8ab4f8;--se:#9aa0a6}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--t);margin:0;height:100vh;overflow:hidden;display:flex}
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>URL Tool Pro</title><link rel="icon" type="image/png" href="favicon.png">
+<script>
+    // Check storage immediately before the page renders
+    if(localStorage.getItem('tm') === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+</script>
+<style>:root{--p:#4285f4;--bg:#f8f9fa;--sbg:#fff;--cbg:#fff;--t:#202124;--t2:#5f6368;--b:#dfe1e5;--h:#f1f3f4;--sh:rgba(32,33,36,0.28);--s-bg:#e6f4ea;--s-tx:#137333;--if:#f1f3f4;--lk:#1a73e8;--sb:#202124;--sr:#d93025;--sl:#1a73e8;--se:#5f6368;--sv:#bc8df3}[data-theme="dark"]{--bg:#202124;--sbg:#292a2d;--cbg:#303134;--t:#e8eaed;--t2:#9aa0a6;--b:#5f6368;--h:#3c4043;--sh:rgba(0,0,0,0.5);--s-bg:#0f5223;--s-tx:#81c995;--if:#3c4043;--lk:#8ab4f8;--sb:#e8eaed;--sr:#ff8a80;--sl:#8ab4f8;--se:#9aa0a6}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--t);margin:0;height:100vh;overflow:hidden;display:flex}
 /* Sidebar */
 .sb{width:280px;background:var(--sbg);border-right:1px solid var(--b);display:flex;flex-direction:column;flex-shrink:0;z-index:100;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);overflow:hidden;white-space:nowrap}.sb.closed{width:0;border:none}.sb-h{padding:15px;border-bottom:1px solid var(--b);display:flex;align-items:center;gap:10px}.sb-h h3{margin:0;font-size:16px;color:var(--t2);flex-grow:1}.sb-act{display:flex;gap:10px}.in-tog{background:none;border:none;color:var(--t2);cursor:pointer;padding:4px;border-radius:4px;display:none}.in-tog:hover{background:var(--h);color:var(--t)}.txt-btn{background:none;border:none;color:var(--t2);font-size:12px;cursor:pointer;text-decoration:underline;padding:0}.txt-btn:hover{color:var(--sr)}.hl{flex:1;overflow-y:auto;list-style:none;padding:0;margin:0}.hi{padding:12px 15px;border-bottom:1px solid var(--b);cursor:pointer;position:relative}.hi:hover{background:var(--h)}.hu{font-size:13px;color:var(--t);overflow:hidden;text-overflow:ellipsis;display:block;font-weight:500;margin-bottom:2px}.ht{font-size:11px;color:var(--t2)}.h-del{position:absolute;right:5px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--t2);cursor:pointer;padding:5px;display:none;font-size:16px}.hi:hover .h-del{display:block}.h-del:hover{color:var(--sr)}.sb-f{padding:15px;border-top:1px solid var(--b);display:flex;justify-content:space-between;align-items:center}
 /* Toggle */
@@ -56,17 +63,18 @@ function togDsk(){sb.classList.toggle('closed')}
 G('tgSb').onclick=()=>{window.innerWidth<=768?togMob(true):togDsk()};
 G('sbClose').onclick=()=>togMob(false);
 ovl.onclick=()=>togMob(false);
+// Main Events
 ui.addEventListener('input',()=>{upBox();an(false)});
 ui.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();an(true)}});
 G('svBtn').onclick=()=>an(true);
 G('cpBtn').onclick=()=>ui.value&&cp(ui.value,G('cpBtn'));
-// IMPROVED DECODE LOGIC
 G('decBtn').onclick=()=>{try{ui.value=decodeURIComponent(ui.value);upBox();an(false)}catch(e){alert('Already decoded or invalid')}};
 G('encBtn').onclick=()=>{try{ui.value=encodeURI(ui.value);upBox();an(false)}catch{}};
 G('clrBtn').onclick=()=>{if(confirm('Clear history?')){H=[];svH();ldH()}};
 G('tm').onchange=e=>{document.documentElement.setAttribute('data-theme',e.target.checked?'dark':'');localStorage.setItem('tm',e.target.checked?'dark':'')};
 G('exLnk').onclick=()=>{ui.value=G('exLnk').innerText;upBox();an(false)};
 G('csvBtn').onclick=expCsv;
-if(localStorage.getItem('tm')==='dark'){G('tm').checked=true;document.documentElement.setAttribute('data-theme','dark')}
+// Sync checkbox at bottom if needed (redundant check but safe)
+if(document.documentElement.getAttribute('data-theme')==='dark'){G('tm').checked=true;}
 ldH();
 </script></body></html>
