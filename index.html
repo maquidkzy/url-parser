@@ -1,6 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>URL Tool Pro</title><link rel="icon" type="image/png" href="favicon.png">
 <script>
-    // Check storage immediately before the page renders
     if(localStorage.getItem('tm') === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
     }
@@ -34,6 +33,7 @@
                 <div class="inp-wrap"><div id="uh" class="url-lay"></div><textarea id="ui" class="url-lay" rows="1" placeholder="Paste URL..." spellcheck="false"></textarea></div>
                 <div class="acts">
                     <span id="cc" class="cc">0 chars</span>
+                    <button class="ib" id="tildeBtn" title="Replace ~ with &">~</button>
                     <button class="ib" id="decBtn" title="Deep Decode (Flatten)">Dec</button>
                     <button class="ib" id="encBtn" title="Encode">Enc</button>
                     <button class="ib" id="svBtn" title="Save"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg></button>
@@ -70,11 +70,12 @@ G('svBtn').onclick=()=>an(true);
 G('cpBtn').onclick=()=>ui.value&&cp(ui.value,G('cpBtn'));
 G('decBtn').onclick=()=>{try{ui.value=decodeURIComponent(ui.value);upBox();an(false)}catch(e){alert('Already decoded or invalid')}};
 G('encBtn').onclick=()=>{try{ui.value=encodeURI(ui.value);upBox();an(false)}catch{}};
+// NEW: Tilde Replacement Logic
+G('tildeBtn').onclick=()=>{ui.value=ui.value.replace(/~/g,'&');upBox();an(false)};
 G('clrBtn').onclick=()=>{if(confirm('Clear history?')){H=[];svH();ldH()}};
 G('tm').onchange=e=>{document.documentElement.setAttribute('data-theme',e.target.checked?'dark':'');localStorage.setItem('tm',e.target.checked?'dark':'')};
 G('exLnk').onclick=()=>{ui.value=G('exLnk').innerText;upBox();an(false)};
 G('csvBtn').onclick=expCsv;
-// Sync checkbox at bottom if needed (redundant check but safe)
-if(document.documentElement.getAttribute('data-theme')==='dark'){G('tm').checked=true;}
+if(localStorage.getItem('tm')==='dark'){G('tm').checked=true;}
 ldH();
 </script></body></html>
